@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Bottle</folder>
+	<filename>bottle_11.jpg</filename>
+	<path>/home/alpha/Code/Project/MerchantPlus/machinelearning/images/Bottle/bottle_11.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bottle</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>152</xmin>
+			<ymin>204</ymin>
+			<xmax>360</xmax>
+			<ymax>474</ymax>
+		</bndbox>
+	</object>
+</annotation>

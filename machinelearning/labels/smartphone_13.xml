@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Smartphone</folder>
+	<filename>smartphone_13.jpg</filename>
+	<path>/home/alpha/Code/Project/MerchantPlus/machinelearning/images/Smartphone/smartphone_13.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>smartphone</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>207</xmin>
+			<ymin>236</ymin>
+			<xmax>640</xmax>
+			<ymax>398</ymax>
+		</bndbox>
+	</object>
+</annotation>
