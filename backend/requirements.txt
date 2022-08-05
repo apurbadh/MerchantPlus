@@ -1,0 +1,6 @@
+sqlachemy 
+uvicorn 
+fastapi
+typing
+pusher
+sqlalchemy_utils
