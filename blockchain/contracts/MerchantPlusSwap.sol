@@ -7,6 +7,20 @@ contract MerchantPlusSwap {
   Token public token;
   uint public rate = 100;
 
+  event TokensPurchased(
+    address account,
+    address token,
+    uint amount,
+    uint rate
+  );
+
+  event TokensSold(
+    address account,
+    address token,
+    uint amount,
+    uint rate
+  );
+
   constructor(Token _token) public {
     token = _token;
   }
@@ -16,6 +30,7 @@ contract MerchantPlusSwap {
     require(token.balanceOf(address(this)) >= tokenAmount);
     token.transfer(msg.sender, tokenAmount);
 
+    emit TokensPurchased(msg.sender, address(token), tokenAmount, rate);
   }
 
   function sellTokens(uint _amount) public payable{
@@ -25,6 +40,7 @@ contract MerchantPlusSwap {
     token.transferFrom(msg.sender, address(this), _amount);
     payable(msg.sender).transfer(etherAmount);
 
+    emit TokensSold(msg.sender, address(token), _amount, rate);
   }
 
 }
