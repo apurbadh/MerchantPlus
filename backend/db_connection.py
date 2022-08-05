@@ -48,3 +48,11 @@ class Product(Base):
     amount = Column(Integer())
     merchant_id = Column(Integer(), ForeignKey('merchant.id'))
 
+
+class CardRequest(Base):
+    id = Column(Integer() , primary_key = True)
+    name = Column(String(50), nullable = False, unique=True)
+    email = Column(EmailType(150), unique = True , nullable =False)
+    address = Column(String(150), nullable = False), # blockchain address or real place address
+    date_create = Column(DateTime() , default = datetime.utcnow)
+
