@@ -4,3 +4,4 @@ fastapi
 typing
 pusher
 sqlalchemy_utils
+web3
