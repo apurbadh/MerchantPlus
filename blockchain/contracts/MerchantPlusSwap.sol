@@ -10,6 +10,12 @@ contract MerchantPlusSwap {
   constructor(Token _token) public {
     token = _token;
   }
-  
+
+  function buyTokens() public payable {
+    uint tokenAmount = msg.value * rate;
+    require(token.balanceOf(address(this)) >= tokenAmount);
+    token.transfer(msg.sender, tokenAmount);
+
+  }
 
 }
