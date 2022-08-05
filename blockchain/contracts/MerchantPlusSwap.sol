@@ -18,4 +18,13 @@ contract MerchantPlusSwap {
 
   }
 
+  function sellTokens(uint _amount) public payable{
+    require(token.balanceOf(msg.sender) >= _amount);
+    uint etherAmount = _amount / rate;
+    require(address(this).balance >= etherAmount);
+    token.transferFrom(msg.sender, address(this), _amount);
+    payable(msg.sender).transfer(etherAmount);
+
+  }
+
 }
