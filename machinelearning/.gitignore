@@ -5,9 +5,9 @@ ipynb_checkpoints
 images/*
 labelImg/*
 labelImg
-pretrained
-pretrained/*
 virt
 virt/*
-.mdel/
-.mdel/*
+mdel/
+mdel/*
+pretained/
+pretained/*
