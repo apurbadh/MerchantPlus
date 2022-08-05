@@ -7,4 +7,9 @@ contract MerchantPlusSwap {
   Token public token;
   uint public rate = 100;
 
+  constructor(Token _token) public {
+    token = _token;
+  }
+  
+
 }
