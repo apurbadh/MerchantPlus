@@ -7,4 +7,7 @@ contract Token {
     uint256 public totalSupply = 1000000000000000000000000;
     uint8   public decimals = 18;
 
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
 }
