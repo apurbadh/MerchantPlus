@@ -31,12 +31,20 @@ class Meachant(Base):
     email = Column(EmailType(150), unique = True , nullable =False)
     address = Column(String(150), nullable = False), # blockchain address or real place address
     password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
+    products = relationship('products', backref='merchant')
     date_create = Column(DateTime() , default = datetime.utcnow)
 
 class Transaction(Base):
-    __tablename__ = "Transactions"
+    __tablename__ = "transactions"
     id = Column(Integer(), primary_key = True)
     sender = Column(String() )
     reciever = Column(String())
     amount = Column(Integer())
+
+class Product(Base):
+    __tablename__ = "products"
+    id = Column(Integer(), primary_key=True)
+    product =  Column(String(150))
+    amount = Column(Integer())
+    merchant_id = Column(Integer(), ForeignKey('merchant.id'))
 
