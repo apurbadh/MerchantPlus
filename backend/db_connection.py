@@ -20,16 +20,23 @@ class User(Base):
     id = Column(Integer() , primary_key = True)
     name = Column(String(50), nullable = False, unique=True)
     email = Column(EmailType(150), unique = True , nullable =False)
-    adrress = Column(String(150), nullable = False),
+    address = Column(String(150), nullable = False), # blockchain address or real place address
     password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
     date_create = Column(DateTime() , default = datetime.utcnow)
 
-class Mearhant(Base):
+class Meachant(Base):
     __tablename__ = "mearchants"
     id = Column(Integer() , primary_key = True)
     name = Column(String(50), nullable = False, unique=True)
     email = Column(EmailType(150), unique = True , nullable =False)
-    adrress = Column(String(150), nullable = False),
+    address = Column(String(150), nullable = False), # blockchain address or real place address
     password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
     date_create = Column(DateTime() , default = datetime.utcnow)
-    
+
+class Transaction(Base):
+    __tablename__ = "Transactions"
+    id = Column(Integer(), primary_key = True)
+    sender = Column(String() )
+    reciever = Column(String())
+    amount = Column(Integer())
+
