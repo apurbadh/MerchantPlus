@@ -13,6 +13,7 @@ class CardRequestGet(_pydantic.BaseModel):
         orm_mode=True
         
 class MerchantRequestGet(_pydantic.BaseModel):
+    id: int
     name:str 
     email:str
     address : str

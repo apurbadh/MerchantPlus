@@ -34,7 +34,7 @@ def auth_admin(admin_data:_schemas.AdminGet):
 
 
 @app.post('/api/merchant/create')
-def create_merchant(merchant_data: _schemas.MerchantRequestGet):
+def create_merchant(merchant_data: _schemas.MerchantRequestStore):
     return _services.make_merchant(merchant_data)
 
 @app.get('/api/merchant/get', response_model=list[_schemas.MerchantRequestGet], response_model_exclude_unset=True)

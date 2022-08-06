@@ -48,7 +48,7 @@ def authenticate_admin(admin_data:_schemas.AdminGet,db:_orm.Session = get_db()):
         
         
 def make_merchant(merchant_data:_schemas.MerchantRequestStore, db:_orm.Session = get_db()):
-    user_obj = _models.Merchant(name=merchant_data.name, email=merchant_data.email, address=merchant_data.address, phone_number=merchant_data.phone_number, password_desired=merchant_data.password,
+    user_obj = _models.Merchant(name=merchant_data.name, email=merchant_data.email, address=merchant_data.address, phone_number=merchant_data.phone_number, password_desired=merchant_data.password_desired,
     is_approved=False )
     try:
         db.add( user_obj )
@@ -77,7 +77,7 @@ def approve_merchant(merchant_id: int,db:_orm.Session = get_db()):
 
 def get_all_merchants(db:_orm.Session = get_db()):
 
-    return db.query(_models.Merchant).all()
+    return db.query(_models.Merchant).filter(is_approved=False)
     
 
 def delete_merchant(merchant_id: int, db:_orm.Session = get_db()):
