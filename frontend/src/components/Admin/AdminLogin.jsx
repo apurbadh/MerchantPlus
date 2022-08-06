@@ -11,10 +11,10 @@ const AdminLogin =() => {
       <div className='bkopeu'>
         <h2 className='text-big-header'>Sign in</h2>
         <div className='jlao'>
-          <input type="email" name="" id="" placeholder='Enter email...' />
+          <input type="email" name="" id="" placeholder='Enter email...' style={{ color: "white" }} />
         </div>
         <div className='jlao'>
-          <input type="password" name="" id="" placeholder='Enter password...' />
+          <input type="password" name="" id="" placeholder='Enter password...' style={{ color: "white" }}/>
         </div>
         <div className='jlao text-center'>
           <button onClick={handleSubmit}>Sign in</button>

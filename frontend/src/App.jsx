@@ -14,7 +14,7 @@ const App = () => {
       const { ethereum } = window
 
         const accounts = await ethereum.request({method: "eth_requestAccounts"})
-        setAccount(accounts[0])
+        await setAccount(accounts[0])
 
         navigate("/connect")
 
@@ -26,7 +26,7 @@ const App = () => {
         <Route path='/' element={<Home connect={connectToWallet}/>} />
         {/* <Route path='*' element={<ErrorPage /> } /> */}
         <Route path='/connect' element={<ConnectWallet account={account}/>}  />
-        <Route path='/exchange' element={<Exchange />} />
+        <Route path='/exchange' element={<Exchange account={account}/>} />
         <Route path='/card/form' element={<CardForm account={account} />} />
         <Route path='/shop/form' element={<ShopForm account={account} />} />
         <Route path='/shop' element={<Shop />} />
