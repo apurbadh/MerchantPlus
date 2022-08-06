@@ -10,5 +10,5 @@ module.exports = async function(deployer) {
   const swap = await MerchantPlusSwap.deployed()
 
   await token.transfer(swap.address, '1000000000000000000000000')
-  
+
 };
