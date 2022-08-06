@@ -27,24 +27,7 @@ const AdminCard = () => {
                         <div><h1>Phone</h1></div>
                     </div>
                     
-                    <Link to="/useradmin/card/id">
-                    <div className='grid-4 text-white svghover formdev-shop '>
-                        <div className='nmo'><h1>Ram Lal Dal</h1></div>
-                        <div><h1>ramlal@gmail.com</h1></div>
-                        <div><h1>Nepal</h1></div>
-                        <div><h1>98765475665</h1></div>
-                    </div>
-                    </Link>
-
-                    <Link to="/useradmin/card/id">
-                    <div className='grid-4 text-white svghover formdev-shop '>
-                        <div className='nmo'><h1>Ram Lal Dal</h1></div>
-                        <div><h1>ramlal@gmail.com</h1></div>
-                        <div><h1>Nepal</h1></div>
-                        <div><h1>98765475665</h1></div>
-                    </div>
-                    </Link>
-                    {/* itemend */}
+                    
                 </div>
         </section>
     </section>

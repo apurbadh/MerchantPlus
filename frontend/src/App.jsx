@@ -34,7 +34,7 @@ const App = () => {
         <Route path='/useradmin/dashboard' element={<AdminDashboard />} />
         <Route path='/useradmin/shop' element={<AdminShop />}/>
         <Route path='/useradmin/card' element={<AdminCard />}/>
-        <Route path='/useradmin/shop/id' element={<AdminShopDetail />} />
+        <Route path='/useradmin/shop/:id' element={<AdminShopDetail />} />
         <Route path='/useradmin/card/id' element={<AdminCardDetail />} />
       </Routes>
     </div>
