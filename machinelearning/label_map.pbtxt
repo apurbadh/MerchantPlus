@@ -1,0 +1,20 @@
+item { 
+	name:'cup'
+	id:1
+}
+item { 
+	name:'smartphone'
+	id:2
+}
+item { 
+	name:'book'
+	id:3
+}
+item { 
+	name:'bottle'
+	id:4
+}
+item {
+	name:'pen'
+	id:5
+}
