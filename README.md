@@ -6,22 +6,37 @@
   <br>
 </h1>
 
-<h4 align="center">A Payment System for Market to Pay with Card and Blockchain</h4>
+<h3 align="center">
+<b> A Payment System for Market to Pay with Card and Blockchain </b> 
+</h3>
+<br>
+<hr>
 
-
-
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-run">How To Run</a> •
-  <a href="#technology-used">Technology Used</a> •
-  <a href="#contributors">Contributors</a> •
-
-</p>
 
   ![screenshot](static/website_layout.gif)
+  <br>
+<br>
+  <div align ="center">
+<h2> Table of content</h2>
+<h3>
+  <a href="#general-information">General Information</a> <br>
+  <a href="#scope">Scope</a> <br>
+  <a href="#key-features">Key Features</a> <br>
+  <a href="#how-to-run">How To Run</a> <br>
+  <a href="#technologies-used">Technology Used</a> <br>
+  <a href="#contributors">Contributors</a> 
+  </h3>
+</div>
+<br>
+<br>
+<br>
 
 ## General Information
+
   Having to transfer balance from crypto wallet to your bank to make real world payment is most pretty common for most crypto users, With merchant plus you can make payment directly to the seller and on the go using Merchant Plus card system. This system introduces the way for not just the consumer but the Service provider to use crypto in their daily business
+
+## Scope
+The major goal of this application is to be able to create and show the importance of decentralized fully autonomous system of banking. people are discouraged by crypto because of its unstable behaviour, difficulty in shopping , not only consumers but the even the people who sell goods and servies don't have proper means and to provide a way for these people to interact with crypto and be able to use in their daily business is a major goal this project aims to achieve\
 
 ## Key Features
 * Custom Token
@@ -73,13 +88,12 @@
 
 
 
+## Technologies Used
 
-## Technology Used
-
- 1. ReactJS
+ 1. ReactJS 
  2. FastAPI
  3. Websockets
- 4. Truffel 
+ 4. Truffle 
  5. web3Py and Web3JS
  6. Tensorflow
  7. numbPy
@@ -88,8 +102,8 @@
 
 ## Contributors
 
-> Apurba  [apurva](https://github.com/apurbadh) *
-> Ashutosh  [@aashutosh](https://github.com/ashshelby) * 
+> Apurba  [apurba](https://github.com/apurbadh) *
+> Ashutosh  [aashutosh](https://github.com/ashshelby) * 
 >Samyam [samyam](https://github.com/SamyamShrestha) *
 > Amir [Amir](https://github.com/amirshapkota) * 
 >Ashwot [Ashwot](https://github.com/Ashwot-Acharya)
