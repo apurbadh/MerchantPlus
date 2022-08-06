@@ -38,4 +38,4 @@ def MyBalance(myadress):
         return e_balance
     else :
         return "Bad Connection"
-
+    

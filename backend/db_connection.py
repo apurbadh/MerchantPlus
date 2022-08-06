@@ -15,6 +15,9 @@ engine = create_engine(connection_string, echo = True)
 
 
 
+Session = sessionmaker()
+
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer() , primary_key = True)
@@ -50,9 +53,19 @@ class Product(Base):
 
 
 class CardRequest(Base):
+    __tablename__ ="cardRequests"
     id = Column(Integer() , primary_key = True)
     name = Column(String(50), nullable = False, unique=True)
     email = Column(EmailType(150), unique = True , nullable =False)
     address = Column(String(150), nullable = False), # blockchain address or real place address
+    password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
     date_create = Column(DateTime() , default = datetime.utcnow)
-
+    
+class merchantRequest(Base):
+    __tablename__
+    id = Column(Integer() , primary_key = True)
+    name = Column(String(50), nullable = False, unique=True)
+    email = Column(EmailType(150), unique = True , nullable =False)
+    address = Column(String(150), nullable = False), # blockchain address or real place address
+    password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
+    date_create = Column(DateTime() , default = datetime.utcnow)
