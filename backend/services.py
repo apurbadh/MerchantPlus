@@ -2,8 +2,12 @@
 import schemas as _schemas
 import sqlalchemy.orm as _orm
 import models as _models
+import jwt as _jwt
 import passlib.hash as _hash
 import database as _database
+from datetime import datetime,timedelta
+JWT_SECRET_KEY ="rajesh_dai_and_friends"
+
 def get_db():
     db =  _database.SessionLocal()
     try: 
@@ -21,5 +25,20 @@ def register_admin(admin_data:_schemas.AdminGet,db:_orm.Session = get_db()):
     except Exception as e:
         print(e)
         return e
+
+
+def authenticate_admin(admin_data:_schemas.AdminGet,db:_orm.Session = get_db()):
+    admin = db.query(_models.Admin).filter(admin_data.username == _models.Admin.username).first()
+    if not admin.verify_password(admin_data.password):
+        raise _fastapi.HTTPException(status_code=422,detail="Invalid Credentials")
+    admin_data = _schemas.AdminJWT.from_orm(admin).dict()
+    admin_data["is_admin"] = True
+    payload ={"admin_data":admin_data,
+    "exp":int((datetime.utcnow() + timedelta(days=7)).timestamp()),
+    "ist":int(datetime.utcnow().timestamp()),
+    "bozo_secret_4dmin":True}
+    token = _jwt.encode(payload,JWT_SECRET_KEY)
+    return {"bearer":token}
+
 
 

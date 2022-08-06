@@ -14,19 +14,20 @@ class Admin(Base):
     hashed_password = Column(String(), nullable = False)
     date_created = Column(DateTime() , default=datetime.utcnow())
 
-    def verify_password(password_to_check:str)->bool:
+    def verify_password(self,password_to_check:str)->bool:
         return _hash.bcrypt.verify(password_to_check,self.hashed_password)
 
 
-# class Meachant(Base):
-#     __tablename__ = "mearchants"
-#     id = Column(Integer() , primary_key = True)
-#     name = Column(String(50), nullable = False, unique=True)
-#     email = Column(EmailType(150), unique = True , nullable =False)
-#     address = Column(String(150), nullable = False) # blockchain address or real place address
-#     password = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
-#     products = relationship('products', backref='merchant')
-#     date_create = Column(DateTime() , default = datetime.utcnow)
+class Meachant(Base):
+    __tablename__ = "mearchants"
+    id = Column(Integer() , primary_key = True)
+    name = Column(String(50), nullable = False, unique=True)
+    email = Column(EmailType(150), unique = True , nullable =False)
+    address = Column(String(150), nullable = False)
+    phone_number = Column(String(10),nullable=True,index=True)
+    password_desired = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
+    date_createed = Column(DateTime() , default = datetime.utcnow())
+    is_approved = Column(Boolean(),default=False,nullable=False)
 
 # class Transaction(Base):
 #     __tablename__ = "transactions"

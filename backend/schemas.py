@@ -14,4 +14,8 @@ class AdminGet(_pydantic.BaseModel):
     password:str
     class Config:
         orm_mode=True
-    
+
+class AdminJWT(_pydantic.BaseModel):
+    username:str 
+    class Config:
+        orm_mode=True
