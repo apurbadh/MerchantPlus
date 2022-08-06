@@ -18,8 +18,8 @@ class Admin(Base):
         return _hash.bcrypt.verify(password_to_check,self.hashed_password)
 
 
-class Meachant(Base):
-    __tablename__ = "mearchants"
+class Merchant(Base):
+    __tablename__ = "merchants"
     id = Column(Integer() , primary_key = True)
     name = Column(String(50), nullable = False, unique=True)
     email = Column(EmailType(150), unique = True , nullable =False)

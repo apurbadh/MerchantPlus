@@ -17,9 +17,21 @@ class MerchantRequestGet(_pydantic.BaseModel):
     email:str
     address : str
     phone_number :  int 
-    password :str
+
     class Config:
-        orm_mode = Trued
+        orm_mode = True
+
+
+class MerchantRequestStore(_pydantic.BaseModel):
+    password_desired :str
+    name:str 
+    email:str
+    address : str
+    phone_number :  int 
+
+    class Config:
+        orm_mode = True
+
 
 class AdminGet(_pydantic.BaseModel):
     username:str 

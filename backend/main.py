@@ -7,8 +7,21 @@ import chain_connection
 import schemas as _schemas
 import fastapi as _fastapi
 import services as _services
+from fastapi.middleware.cors import CORSMiddleware
 import sqlalchemy.orm as _orm
+
 app = FastAPI() 
+
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post('/api/secret/add/administrator')
@@ -20,15 +33,27 @@ def auth_admin(admin_data:_schemas.AdminGet):
     return _services.authenticate_admin(admin_data)
 
 
-@app.post('/api/cardRequest')
-def create_users(user_data:_schemas.CardRequestGet,): 
-    return _services.createUser_req(user_data)
+@app.post('/api/merchant/create')
+def create_merchant(merchant_data: _schemas.MerchantRequestGet):
+    return _services.make_merchant(merchant_data)
 
+@app.get('/api/merchant/get', response_model=list[_schemas.MerchantRequestGet], response_model_exclude_unset=True)
+def get_merchants():
+    return _services.get_all_merchants()
 
+@app.get('/api/merchant/get/{merchant_id}', response_model=_schemas.MerchantRequestGet, response_model_exclude_unset=True)
+def get_merchant(merchant_id: int):
 
-@app.post('/api/merchantRequest')
-def create_merchant(merchant_data:_schemas.MerchantRequestGet):
-    return _services.makemerchant(merchant_data)
+    return _services.get_merchant(merchant_id);
+
+@app.post('/api/merchant/{merchant_id}/approve')
+def merchant_approve(merchant_id: int):
+    return _services.approve_merchant(merchant_id)
+
+@app.post('/api/merchant/{merchant_id}/reject')
+def reject_merchant(merchant_id: int):
+    return _services.delete_merchant(merchant_id)
+
 
 
 # @app.post('/maketrans')
