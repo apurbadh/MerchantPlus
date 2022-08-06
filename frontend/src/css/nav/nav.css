@@ -1,0 +1,30 @@
+.logo-nav {
+  height: 6em;
+  padding: 2em;
+  will-change: filter;
+}
+
+nav {
+  width: 100%;
+  background: #1d2128;
+  color: white;
+}
+
+.navheader {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 90px;
+  place-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navheader .active-nvabar {
+  margin-top: 2em;
+}
+
+.navheader .active-nvabar .linkofthenav {
+  margin-right: 40px;
+}
+/*# sourceMappingURL=nav.css.map */

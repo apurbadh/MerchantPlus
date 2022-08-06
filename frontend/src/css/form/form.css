@@ -1,0 +1,73 @@
+.mnbns {
+  width: 100%;
+  min-height: 1025px;
+  background: #1d2128;
+}
+
+.postionformdata {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background: #21272e;
+}
+
+.postionformdata {
+  background: #1d2228;
+  padding: 50px;
+  margin-top: 180px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.8);
+          box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.8);
+}
+
+.formcardtextdata input {
+  margin-top: 4px;
+  width: 380px;
+  font-size: 16px;
+}
+
+.formcardtextdata .label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.formcardtextdata .sb1 {
+  margin-top: 25px;
+}
+
+.btncardform {
+  padding: 5px 20px 5px 20px;
+  background: #27baef;
+  font-family: "Teko", sans-serif;
+  font-size: 24px;
+  -webkit-transition: background 400ms, -webkit-transform 100ms ease;
+  transition: background 400ms, -webkit-transform 100ms ease;
+  transition: transform 100ms ease, background 400ms;
+  transition: transform 100ms ease, background 400ms, -webkit-transform 100ms ease;
+  letter-spacing: 1px;
+}
+
+.btncardform:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background: #309fc7;
+}
+
+@media only screen and (min-width: 1620px) {
+  .postionformdata {
+    background: #1d2228;
+    padding: 50px;
+    margin-top: 60px;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.8);
+            box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.8);
+  }
+}
+/*# sourceMappingURL=form.css.map */

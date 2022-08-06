@@ -1,0 +1,30 @@
+// $main-backgrouh:linear-gradient(to right, #111111 40%, #353c45 );
+$main-backgrouh: #1d2128;
+
+.logo-nav {
+    height: 6em;
+    padding: 2em;
+    will-change: filter;
+  }
+
+nav{
+    width: 100%;
+    background:$main-backgrouh ;
+    color: white;
+}
+.navheader{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 90px;
+    place-content: space-between;
+    display: flex;
+
+    & .active-nvabar{
+        margin-top: 2em;
+
+    }
+
+    & .active-nvabar .linkofthenav{
+        margin-right: 40px;
+    }
+}
