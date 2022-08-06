@@ -1,14 +1,13 @@
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from "react" 
 import { AdminCard, AdminCardDetail, AdminDashboard, AdminLogin, AdminShop, AdminShopDetail, CardForm, ConnectWallet, Exchange, Home, Shop, ShopForm } from './components'
+import ShopLogin from "./components/User/Shop/ShopLogin"
 
 
 const App = () => {
 
-    
     const [account, setAccount] = useState(null);
     const navigate = useNavigate()
-
 
     const connectToWallet = async () => {
       const { ethereum } = window
@@ -29,7 +28,8 @@ const App = () => {
         <Route path='/exchange' element={<Exchange account={account}/>} />
         <Route path='/card/form' element={<CardForm account={account} />} />
         <Route path='/shop/form' element={<ShopForm account={account} />} />
-        <Route path='/shop' element={<Shop />} />
+        <Route path='/shop' element={<ShopLogin/>}/>
+        <Route path='/shop/dashboard' element={<Shop />} />
         <Route path='/useradmin/login' element={<AdminLogin />} />
         <Route path='/useradmin/dashboard' element={<AdminDashboard />} />
         <Route path='/useradmin/shop' element={<AdminShop />}/>
