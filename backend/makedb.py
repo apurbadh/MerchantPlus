@@ -1,5 +1,3 @@
-from db_connection import engine , Base
-
-
+from database import Base,engine
+import models
 Base.metadata.create_all(engine)
-

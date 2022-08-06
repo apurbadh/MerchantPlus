@@ -1,17 +1,27 @@
 from fastapi import FastAPI ,  Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from passlib.hash import bcrypt
-from db_connection import Session, User , CardRequest , merchantRequest, engine
+# from database import Session,engine
 from typing import Union
 import chain_connection
-
-
+import schemas as _schemas
+import fastapi as _fastapi
+import services as _services
+import sqlalchemy.orm as _orm
 app = FastAPI() 
 
 
-@app.post('/cardRequest')
-def createusers(request): # ?
-    loc_session = Session(bind=engine )
+@app.post('/api/secret/add/administrator')
+def add_admin(admin_data:_schemas.AdminGet):
+    return _services.register_admin(admin_data)
+
+@app.post('/api/auth/admin')
+def auth_admin(admin_data:_schemas.AdminGet):
+    return _services.authenticate_admin(admin_data)
+
+
+@app.post('/api/cardRequest')
+def createusers(user_data:_schemas.CardRequestGet,): # ?
     cd_req = CardRequest(
         name = request.name,
         email = request.email,
