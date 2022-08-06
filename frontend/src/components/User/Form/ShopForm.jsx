@@ -1,11 +1,14 @@
 import React from 'react'
+import CUNavBar from '../NavBar/CUNavBar'
 import NavBar from '../NavBar/NavBar'
 
-const ShopForm =() => {
+const ShopForm =(props) => {
+    
   return (
 <section>
         <div>
-            <NavBar />
+            {props.account ? <CUNavBar/> : <NavBar />}
+
         </div>
 
         <section className='mnbns'>

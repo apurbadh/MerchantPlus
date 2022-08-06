@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
-import NavBar from '../NavBar/NavBar'
 import {AiOutlineSwap} from 'react-icons/ai'
 import {FaEthereum} from 'react-icons/fa'
+import CUNavBar from '../NavBar/CUNavBar'
+import Token from "../../../abis/Token.json"
+import MerchantSwap from "../../../abis/MerchantPlusSwap.json"
+
+
 const Exchange = () => {
   const [CUData, setCUData] = useState("")
   return (
     <section>
         <div>
-            <NavBar />
+          <CUNavBar/>
         </div>
 
         <div className='exchangewallet'>

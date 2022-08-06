@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CUNavBar from '../NavBar/CUNavBar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Token from "../../../abis/Token.json"
 
-const ConnectWallet = () => {
+const ConnectWallet = (props) => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (! props.account)
+        {
+            navigate('/')
+        }
+    }, [])
+
+
   return (
     <section className='height-p'>
         <div>
-            <CUNavBar />
+            <CUNavBar account = { props.account } />
         </div>
 
         <div className='cvsdg'>

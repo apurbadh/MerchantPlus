@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Feature from './Start/Feature'
 import Info from './Start/Info'
 import NavBar from './NavBar/NavBar'
@@ -7,11 +7,12 @@ import Wallet from './Start/Wallet'
 import Card from './Start/Card'
 import Footer from './Footer/Footer'
 
-const Home = () => {
+const Home = (props) => {
+
   return (
     <div>
         <div>
-            <NavBar />
+            <NavBar connect={props.connect} />
         </div>
         <div>
             <Start />
