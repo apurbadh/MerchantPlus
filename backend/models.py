@@ -29,17 +29,6 @@ class Meachant(Base):
     date_createed = Column(DateTime() , default = datetime.utcnow())
     is_approved = Column(Boolean(),default=False,nullable=False)
 
-class User(base):
-    __tablename__ = "users"
-    id = Column(Integer() , primary_key = True)
-    name = Column(String(50), nullable = False, unique=True)
-    email = Column(EmailType(150), unique = True , nullable =False)
-    address = Column(String(150), nullable = False)
-    phone_number = Column(String(10),nullable=True,index=True)
-    password_desired = Column(PasswordType(schemes=['pbkdf2_sha512','md5_crypt'],deprecated=['md5_crypt']), nullable = False)
-    date_createed = Column(DateTime() , default = datetime.utcnow())
-    is_approved = Column(Boolean(),default=False,nullable=False)
-
 # class Transaction(Base):
 #     __tablename__ = "transactions"
 #     id = Column(Integer(), primary_key = True)
