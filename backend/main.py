@@ -21,54 +21,35 @@ def auth_admin(admin_data:_schemas.AdminGet):
 
 
 @app.post('/api/cardRequest')
-def createusers(user_data:_schemas.CardRequestGet,): # ?
-    cd_req = CardRequest(
-        name = request.name,
-        email = request.email,
-        address = request.address    
-    )
-    loc_session.add(cd_req)
-    loc_session.commit()
-    
-    return {"message": "card request Sent"}
+def create_users(user_data:_schemas.CardRequestGet,): 
+    return _services.createUser_req(user_data)
 
 
 
-@app.post('/merchant')
-def merchat():
-    local_session = Session(bind=engine )
-    cd_req = merchantRequest(
-        name = request.name,
-        email = request.email,
-        address = request.address    
-    )
-    local_session.add(cd_req)
-    local_session.commit()
-    
-    return {"message": "Mearchant request Sent"}
+@app.post('/api/merchantRequest')
+def create_merchant(merchant_data:_schemas.MerchantRequestGet):
+    return _services.makemerchant(merchant_data)
 
 
-
-
-@app.post('/maketrans')
-def make_transactions(s_add , r_add , priv_key,amt):
-   try:
-       chain_connection.make_trans(s_add, r_add, priv_key, amt)
-   except:
-       return {"message":" Error "}
+# @app.post('/maketrans')
+# def make_transactions(s_add , r_add , priv_key,amt):
+#    try:
+#        chain_connection.make_trans(s_add, r_add, priv_key, amt)
+#    except:
+#        return {"message":" Error "}
     
 
-@app.get('/history/{address}')
-def transaction_history(address:str):
-    return address
+# @app.get('/history/{address}')
+# def transaction_history(address:str):
+#     return address
     
     
     
     
     
-    # Database -> get data -> send json back
-    pass
+#     # Database -> get data -> send json back
+#     pass
 
-@app.put('/products')
-def update():
-    pass
+# @app.put('/products')
+# def update():
+#     pass

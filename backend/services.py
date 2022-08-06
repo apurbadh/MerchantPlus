@@ -42,3 +42,24 @@ def authenticate_admin(admin_data:_schemas.AdminGet,db:_orm.Session = get_db()):
 
 
 
+def createUser_req(user_data:_schemas.CardRequestGet, db:_orm.Session = get_db()):
+    user_obj = _models.User(name =user_data.name ,email=user_data.email, address = user_data.address,phone_number=user_data.phone_number , password_desired=user_data.password )
+    try:
+        db.add( user_obj )
+        db.commit()
+        db.refresh(user_obj)
+        
+    except Exception as e:
+        print(e)
+        
+        
+        
+def makemerchant(merchant_data:_schemas.MerchantRequestGet, db:_orm.Session = get_db()):
+    user_obj = _models.User(name =merchant_data.name ,email=merchant_data.email, address = merchant_data.address,phone_number=merchant_data.phone_number , password_desired=merchant_data.password )
+    try:
+        db.add( user_obj )
+        db.commit()
+        db.refresh(user_obj)
+        
+    except Exception as e:
+        print(e)
