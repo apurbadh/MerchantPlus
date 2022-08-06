@@ -1,0 +1,5 @@
+(sqlite3.OperationalError) no such table: users
+[SQL: INSERT INTO users (username, hashed_password, date_created) VALUES (?, ?, ?)]
+[parameters: ('string', '$2b$12$5SoUW2okO986isHLfitrGeKFERfD3quc6kZgh1jwEyctXYLOYASlu', '2022-08-06 11:47:30.233714')]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:     127.0.0.1:36048 - "POST /api/secret/add/administrator HTTP/1.1" 200 OK
