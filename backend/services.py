@@ -103,4 +103,18 @@ def get_merchant(merchant_id: int, db:_orm.Session = get_db()):
         
         raise _fastapi.HTTPException(404, "Cannot find the user")
 
+
+def authenticate_merchant(admin_data:_schemas.MerchantGet,db:_orm.Session = get_db()):
+    admin = db.query(_models.Merchant).filter(admin_data.email == _models.Merchant.email, admin_data.password == _models.Merchant.password_desired).first()
+    if not admin:
+        raise _fastapi.HTTPException(status_code=422,detail="Invalid Credentials")
+    admin_data = _schemas.AdminJWT.from_orm(admin).dict()
+    admin_data["is_admin"] = True
+    payload ={"admin_data":admin_data,
+    "exp":int((datetime.utcnow() + timedelta(days=7)).timestamp()),
+    "ist":int(datetime.utcnow().timestamp()),
+    "bozo_secret_4dmin":True}
     
+    token = _jwt.encode(payload,JWT_SECRET_KEY)
+    return {"bearer":token}
+

@@ -44,3 +44,9 @@ class AdminJWT(_pydantic.BaseModel):
     username:str 
     class Config:
         orm_mode=True
+
+class MerchantGet(_pydantic.BaseModel):
+    email:str 
+    password:str
+    class Config:
+        orm_mode=True

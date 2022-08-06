@@ -54,7 +54,9 @@ def merchant_approve(merchant_id: int):
 def reject_merchant(merchant_id: int):
     return _services.delete_merchant(merchant_id)
 
-
+@app.post('/api/auth/merchant')
+def authenticate_merchant(admin_data:_schemas.MerchantGet):
+    return _services.authenticate_merchant(admin_data)
 
 # @app.post('/maketrans')
 # def make_transactions(s_add , r_add , priv_key,amt):
