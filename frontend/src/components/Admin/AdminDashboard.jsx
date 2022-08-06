@@ -1,8 +1,18 @@
 import React from 'react'
 import AdminNavBar from './AdminNavBar'
 import AdminSidebar from './AdminSidebar'
+import { useEffect } from "react"
+import { useNavigate } from 'react-router'
 
 const AdminDashboard = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')){
+            navigate('/useradmin/login')
+        }
+    }, [])
   return (
     <section>
         <div>

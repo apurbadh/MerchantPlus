@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import AdminNavBar from '../AdminNavBar'
 import AdminSidebar from '../AdminSidebar'
 
 const AdminShopDetail = () => {
+  const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')){
+            navigate('/useradmin/login')
+        }
+    }, [])
   return (
     <section className='spvc'>
       <div><AdminSidebar /></div>

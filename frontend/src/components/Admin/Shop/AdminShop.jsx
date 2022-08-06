@@ -4,6 +4,13 @@ import AdminNavBar from '../AdminNavBar'
 import { Link } from 'react-router-dom'
 
 const AdminShop = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')){
+            navigate('/useradmin/login')
+        }
+    }, [])
   return (
     <section>
         <div>
