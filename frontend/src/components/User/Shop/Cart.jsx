@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import $ from 'jquery'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
-import Ruby from '../../../../images/Ruby.png'
+import Smartphone from "../../../../images/phone.jpg"
+import { useNavigate } from 'react-router'
 
-const Cart = () => {
+const Cart = (props) => {
     // useEffect(()=>{
     //     $('.sidecart').on('click', ()=>{
     //         $('.cartsidebar').css('width', "300px")
     //     })
     // },[])
+    const navigate = useNavigate()
   return (
     <section className='sidecart'>
         <div className='cartsidebar'>
@@ -23,35 +25,27 @@ const Cart = () => {
                 <section style={{height:"400px", overflow:"auto"}}>
                     <div className='init-cartside'>
                         {/* contents */}
+                        { Array.apply(null, {length: props.cart}).map( e => 
                         <div className='grid-2-s imageofthesidecart'>
-                            <img src={Ruby} className="" alt="" />
+                            <img src={Smartphone} className="" alt="" />
                             <div className='content0-12text'>
-                                <h2>Ruby</h2>
+                                <h2>Cell phone</h2>
                                 <div className='content012-p'>
-                                    <p>Ruby on Rails</p>
-                                    <p>$10000</p>
+                                    <p>Smartphone</p>
+                                    <p>10 MPT</p>
                                 </div>
                             </div>
                         </div>
-                        {/* contentsend */}
-                         {/* contents */}
-                         <div className='grid-2-s imageofthesidecart'>
-                            <img src={Ruby} className="" alt="" />
-                            <div className='content0-12text'>
-                                <h2>Ruby</h2>
-                                <div className='content012-p'>
-                                    <p>Ruby on Rails</p>
-                                    <p>$10000</p>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                         {/* contentsend */}
                     </div>
                 </section>
                 {/* items for the cart end */}
 
                 <section className='text-center'>
-                    <button className='checkoutbtn'>Checkout</button>
+                    <button className='checkoutbtn'
+                    onClick={e => navigate("/scan")}
+                    >Checkout</button>
                 </section>
               
             </div>

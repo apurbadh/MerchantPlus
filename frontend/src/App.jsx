@@ -2,6 +2,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from "react" 
 import { AdminCard, AdminCardDetail, AdminDashboard, AdminLogin, AdminShop, AdminShopDetail, CardForm, ConnectWallet, Exchange, Home, Shop, ShopForm } from './components'
 import ShopLogin from "./components/User/Shop/ShopLogin"
+import Scan from './components/User/Shop/Scan'
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         <Route path='/useradmin/card' element={<AdminCard />}/>
         <Route path='/useradmin/shop/:id' element={<AdminShopDetail />} />
         <Route path='/useradmin/card/id' element={<AdminCardDetail />} />
+        <Route path='/scan' element={<Scan/>}/>                        
       </Routes>
     </div>
   )
