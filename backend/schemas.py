@@ -13,6 +13,7 @@ class CardRequestGet(_pydantic.BaseModel):
         orm_mode=True
         
 class MerchantRequestGet(_pydantic.BaseModel):
+    id: int
     name:str 
     email:str
     address : str
@@ -41,5 +42,11 @@ class AdminGet(_pydantic.BaseModel):
 
 class AdminJWT(_pydantic.BaseModel):
     username:str 
+    class Config:
+        orm_mode=True
+
+class MerchantGet(_pydantic.BaseModel):
+    email:str 
+    password:str
     class Config:
         orm_mode=True

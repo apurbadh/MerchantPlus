@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminSidebar from '../AdminSidebar'
 import AdminNavBar from '../AdminNavBar'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router'
+import request from "../../../scripts/request"
+
 
 const AdminShop = () => {
+    
     const navigate = useNavigate();
-
-    useEffect(() => {
+    const [data, setData] = useState([])
+    
+    useEffect( () => {
         if (!localStorage.getItem('token')){
             navigate('/useradmin/login')
         }
+
+        const axios = request()
+        axios.get("/merchant/get").then(res => {
+            setData(res.data)
+        })
+    
     }, [])
   return (
     <section>
@@ -23,7 +34,6 @@ const AdminShop = () => {
         <section className='w-80per spvc' >
                 <div className='flex'>
                     <h1 className='text-big ' style={{fontSize:"40px"}}>Shop Applicants</h1>
-                   <button className='text-white'>Grid</button>
                 </div>
                 <div className='mnoutsidecv'>
                     {/* itemstart */}
@@ -33,24 +43,18 @@ const AdminShop = () => {
                         <div><h1>Address</h1></div>
                         <div><h1>Phone</h1></div>
                     </div>
-
-                    <Link to="/useradmin/shop/id">
+                    {data.map(
+                        item => <Link to={`/useradmin/shop/${item.id}`} >
                     <div className='grid-4 text-white svghover formdev-shop'>
-                        <div className='nmo'><h1>Ram Lal Dubashi</h1></div>
-                        <div><h1>ram@gmail.com</h1></div>
-                        <div><h1>China</h1></div>
-                        <div><h1>098765676</h1></div>
+                        <div className='nmo'><h1>{item.name}</h1></div>
+                        <div><h1>{item.email}</h1></div>
+                        <div><h1>{item.address}</h1></div>
+                        <div><h1>{item.phone_number}</h1></div>
                     </div>
                     </Link>
-                    <Link to="/useradmin/shop/id">
-                    <div className='grid-4 text-white svghover formdev-shop'>
-                        <div className='nmo'><h1>Ram Lal Dubashi</h1></div>
-                        <div><h1>ram@gmail.com</h1></div>
-                        <div><h1>China</h1></div>
-                        <div><h1>098765676</h1></div>
-                    </div>
-                    </Link>
-                    {/* itemend */}
+                    )}
+                    
+                    
                 </div>
         </section>
     </section>

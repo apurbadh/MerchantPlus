@@ -48,7 +48,7 @@ def authenticate_admin(admin_data:_schemas.AdminGet,db:_orm.Session = get_db()):
         
         
 def make_merchant(merchant_data:_schemas.MerchantRequestStore, db:_orm.Session = get_db()):
-    user_obj = _models.Merchant(name=merchant_data.name, email=merchant_data.email, address=merchant_data.address, phone_number=merchant_data.phone_number, password_desired=merchant_data.password,
+    user_obj = _models.Merchant(name=merchant_data.name, email=merchant_data.email, address=merchant_data.address, phone_number=merchant_data.phone_number, password_desired=merchant_data.password_desired,
     is_approved=False )
     try:
         db.add( user_obj )
@@ -77,7 +77,7 @@ def approve_merchant(merchant_id: int,db:_orm.Session = get_db()):
 
 def get_all_merchants(db:_orm.Session = get_db()):
 
-    return db.query(_models.Merchant).all()
+    return db.query(_models.Merchant).filter(is_approved=False)
     
 
 def delete_merchant(merchant_id: int, db:_orm.Session = get_db()):
@@ -103,4 +103,18 @@ def get_merchant(merchant_id: int, db:_orm.Session = get_db()):
         
         raise _fastapi.HTTPException(404, "Cannot find the user")
 
+
+def authenticate_merchant(admin_data:_schemas.MerchantGet,db:_orm.Session = get_db()):
+    admin = db.query(_models.Merchant).filter(admin_data.email == _models.Merchant.email, admin_data.password == _models.Merchant.password_desired).first()
+    if not admin:
+        raise _fastapi.HTTPException(status_code=422,detail="Invalid Credentials")
+    admin_data = _schemas.AdminJWT.from_orm(admin).dict()
+    admin_data["is_admin"] = True
+    payload ={"admin_data":admin_data,
+    "exp":int((datetime.utcnow() + timedelta(days=7)).timestamp()),
+    "ist":int(datetime.utcnow().timestamp()),
+    "bozo_secret_4dmin":True}
     
+    token = _jwt.encode(payload,JWT_SECRET_KEY)
+    return {"bearer":token}
+
