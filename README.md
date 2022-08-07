@@ -11,9 +11,14 @@
 </h3>
 <br>
 <hr>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tmNpKoXsG6s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
   ![screenshot](static/website_layout.gif)
+  ## Demonstration Video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/tmNpKoXsG6s/0.jpg)](https://www.youtube.com/watch?v=tmNpKoXsG6s)
+
+
+
   <br>
 <br>
   <div align ="center">
